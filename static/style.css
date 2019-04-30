@@ -1,7 +1,8 @@
 /*General styles*/
-.is-fullheight{
-    height: 100vh;
-    background: #FF5C39;
+h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
 }
 .is-vertically-centered {
 	position: absolute;
@@ -49,10 +50,11 @@
 }
 /*Radio Buttons*/
 #radioContainer{
-
+    text-align: center;
+    margin-top: 20px;
 }
 #radioButtons{
-    margin: 40px;
+    margin: 5px 40px 30px;
     text-align: center;
 }
 input {
