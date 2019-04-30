@@ -1,4 +1,4 @@
-# 🏠 Showcase Architecture Website 🏠
+# Hone Capital Evaluation project
 
 ## Languages and Tools 💻
 - Bulma
@@ -13,28 +13,28 @@
 
 
 #### 2.	Clone the repository 
-> 'Git clone https://github.com/stbarillas/Art-Vandelay-Architecture.git'
+> 'Git clone https://github.com/stbarillas/hone.git'
 
 
 #### 3. Delete the node_modules folder
-- cd to Art Vandelay directory
+- cd to root project directory
 - delete nodule_modules folder
 
 
 #### 4. NPM
-- cd to Art Vandelay directory
+- cd to root project directory
 - run: npm install
 
 
 #### 5. Run Watcher
-- cd Art Vandelay directory
+- cd to root project directory
 - run: npm start
 
 As long as `npm start` is running, it will **watch** your changes. You can edit `_sass/main.scss` and `_javascript/main.js` at will. Changes are **immediately** compiled to their destinations, where `index.html` will pick them up upon reload in your browser.
 
 
 #### 6. Happy Coding!
-- Open portfolio directory with your code editor of choice
+- Open project directory with your code editor of choice
 - Opening index.html will display the launch page
 
 
