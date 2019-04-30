@@ -4,9 +4,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My first Bulma website</title>
+        <title>Evaluation | Hone Capital</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="static/style.css">
+        <link rel="shortcut icon" href="http://cscventurecapital.com/wp-content/uploads/2017/03/favicon.ico">
     </head>
     <body>
         <!--<header class="is-fullheight">-->
@@ -14,84 +15,87 @@
                 <!--<h1>Hello<br> Hone</h1>-->
             <!--</div>-->
         <!--</header>-->
-
         <section>
-            <div class="control">
-                <label class="radio">
-                    <input type="radio" name="answer" checked onclick="renderData(30)">30 Days
-                </label>
-                <label class="radio">
-                    <input type="radio" name="answer" onclick="renderData(15)">15 Days
-                </label>
-                <label class="radio">
-                    <input type="radio" name="answer" onclick="renderData(7)">7 Days
-                </label>
-                <label class="radio">
-                    <input type="radio" name="answer" onclick="renderData(3)">3 Days
-                </label>
-            </div>
-            <div class="columns">
-                <!--Table Column-->
-                <div class="column is-one-quarter">
-                    <table id="dataTable">
-                        <tr>
-                            <th> Date </th>
-                            <th> Price (USD)</th>
-                        </tr>
-                    </table>
+            <div id="radioContainer">
+                <div id="radioButtons" class="control">
+                        <label class="radio">
+                            <input type="radio" name="answer" checked onclick="renderData(31)">31 Days
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer" onclick="renderData(15)">15 Days
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer" onclick="renderData(7)">7 Days
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer" onclick="renderData(3)">3 Days
+                        </label>
                 </div>
-                <!--Chart Column-->
-                <div class="column">
-                    <canvas id="dataChart" width="300" height="300"></canvas>
-                    <script src="node_modules/chart.js/dist/Chart.js"></script>
-                    <script>
-                        function renderChart(data, days){
-                            var ctx = document.getElementById('dataChart');
-                            var dataChart = new Chart(ctx, {
-                                type: 'line',
-                                data: {
-                                    labels: Object.keys(data).slice(0,days),
-                                    datasets: [{
-                                        label: '',
-                                        data: Object.values(data).slice(0,days),
-                                        backgroundColor: [
-                                            "rgb(255, 92, 57, .2)",
-                                        ],
-                                        borderColor: [
-                                            "rgba(0, 0, 0, 0.3)",
-                                        ],
-                                        borderWidth: 3,
-                                        lineTension: .1,
-                                        pointBackgroundColor: "rgb(255, 92, 57)"
-                                    }]
-                                },
-                                options: {
-                                    title: {
-                                        display: true,
-                                        text: "Historical BTC data",
-                                        fontSize: 20,
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: "Price (USD)",
-                                            },
-                                            ticks: {
-                                                beginAtZero: false
-                                            }
-                                        }],
-                                        xAxes: [{
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: "Date",
-                                            }
+            </div>
+            <div>
+                <div class="columns">
+                    <!--Table Column-->
+                    <div id="tableColumn" class="column is-one-quarter">
+                        <table id="dataTable">
+                            <tr>
+                                <th> Date </th>
+                                <th> Price (USD)</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--Chart Column-->
+                    <div id="chartColumn" class="column">
+                        <canvas id="dataChart"></canvas>
+                        <script src="node_modules/chart.js/dist/Chart.js"></script>
+                        <script>
+                            function renderChart(data, days){
+                                var ctx = document.getElementById('dataChart');
+                                var dataChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: Object.keys(data).slice(31-days, 31),
+                                        datasets: [{
+                                            label: '',
+                                            data: Object.values(data).slice(31-days,31),
+                                            backgroundColor: [
+                                                "rgb(255, 92, 57, .2)",
+                                            ],
+                                            borderColor: [
+                                                "rgba(0, 0, 0, 0.3)",
+                                            ],
+                                            borderWidth: 3,
+                                            lineTension: .1,
+                                            pointBackgroundColor: "rgb(255, 92, 57)"
                                         }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: "Historical BTC data",
+                                            fontSize: 20,
+                                        },
+                                        scales: {
+                                            yAxes: [{
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: "Price (USD)",
+                                                },
+                                                ticks: {
+                                                    beginAtZero: false
+                                                }
+                                            }],
+                                            xAxes: [{
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: "Date",
+                                                }
+                                            }]
+                                        }
                                     }
-                                }
-                            });
-                        }
-                    </script>
+                                });
+                            }
+                        </script>
+                    </div>
                 </div>
             </div>
         </section>

@@ -17,3 +17,29 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+
+/*Radio Buttons*/
+#radioContainer{
+
+}
+#radioButtons{
+    margin: 40px;
+    text-align: center;
+}
+input {
+    margin: 0 5px 0 10px;
+}
+
+/*Table*/
+#tableColumn{padding: 10px 30px}
+#dataTable {
+    border: 2px solid #666666;
+}
+th, td {
+    text-align: center!important;
+    padding: 0 15px 0 15px;
+    color: #666666!important;
+}
+
+/*Chart*/
+#chartColumn{padding: 10px 80px}
