@@ -15,9 +15,9 @@
             <!--</div>-->
         <!--</header>-->
 
-        <!--Table content-->
         <section>
             <div class="columns">
+                <!--Table Column-->
                 <div class="column is-one-quarter">
                     <table id="dataTable">
                         <tr>
@@ -26,8 +26,49 @@
                         </tr>
                     </table>
                 </div>
+                <!--Chart Column-->
                 <div class="column">
-                    Graph
+                    <canvas id="dataChart" width="300" height="300"></canvas>
+                    <script src="node_modules/chart.js/dist/Chart.js"></script>
+                    <script>
+                        function renderChart(data){
+                            var ctx = document.getElementById('dataChart');
+                            let priceDict = data["bpi"]
+                            var dataChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: Object.keys(priceDict),
+                                    datasets: [{
+                                        label: '',
+                                        data: Object.values(priceDict),
+                                        backgroundColor: [
+                                            "rgb(255, 92, 57, .2)",
+                                        ],
+                                        borderColor: [
+                                            "rgba(0, 0, 0, 0.3)",
+                                        ],
+                                        borderWidth: 3,
+                                        lineTension: .1,
+                                        pointBackgroundColor: "rgb(255, 92, 57)"
+                                    }]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: "Historical BTC data",
+                                        fontSize: 20,
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: false
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                        }
+                    </script>
                 </div>
             </div>
         </section>
