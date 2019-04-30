@@ -16,6 +16,20 @@
         <!--</header>-->
 
         <section>
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="answer" checked onclick="renderData(30)">30 Days
+                </label>
+                <label class="radio">
+                    <input type="radio" name="answer" onclick="renderData(15)">15 Days
+                </label>
+                <label class="radio">
+                    <input type="radio" name="answer" onclick="renderData(7)">7 Days
+                </label>
+                <label class="radio">
+                    <input type="radio" name="answer" onclick="renderData(3)">3 Days
+                </label>
+            </div>
             <div class="columns">
                 <!--Table Column-->
                 <div class="column is-one-quarter">
@@ -31,16 +45,15 @@
                     <canvas id="dataChart" width="300" height="300"></canvas>
                     <script src="node_modules/chart.js/dist/Chart.js"></script>
                     <script>
-                        function renderChart(data){
+                        function renderChart(data, days){
                             var ctx = document.getElementById('dataChart');
-                            let priceDict = data["bpi"]
                             var dataChart = new Chart(ctx, {
                                 type: 'line',
                                 data: {
-                                    labels: Object.keys(priceDict),
+                                    labels: Object.keys(data).slice(0,days),
                                     datasets: [{
                                         label: '',
-                                        data: Object.values(priceDict),
+                                        data: Object.values(data).slice(0,days),
                                         backgroundColor: [
                                             "rgb(255, 92, 57, .2)",
                                         ],
@@ -60,8 +73,18 @@
                                     },
                                     scales: {
                                         yAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: "Price (USD)",
+                                            },
                                             ticks: {
                                                 beginAtZero: false
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: "Date",
                                             }
                                         }]
                                     }
@@ -72,9 +95,6 @@
                 </div>
             </div>
         </section>
-        <footer>
-
-        </footer>
     <script type="text/javascript" src="static/custom.js"></script>
     </body>
 </html>
