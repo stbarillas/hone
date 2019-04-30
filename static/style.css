@@ -1,5 +1,4 @@
 /*General styles*/
-body {padding: 30px}
 .is-fullheight{
     height: 100vh;
     background: #FF5C39;
@@ -23,6 +22,31 @@ body {padding: 30px}
     margin-right: auto;
 }
 
+.has-depth {
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+
+/*Navbar*/
+.navbar {
+    transition: all 1s;
+    background-color: #FF5C39;
+    min-height: 5.5rem;
+}
+
+
+
+.navbar-item {
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-right: 40px;
+}
+.navbar-item:hover {
+    background: unset !important;
+}
+.navbar-item:hover span {
+    color: #FFFFFF !important;
+    border-bottom: 1px solid #FFFFFF;
+}
 /*Radio Buttons*/
 #radioContainer{
 
