@@ -36,7 +36,7 @@
                 <div class="columns">
                     <!--Table Column-->
                     <div id="tableColumn" class="column is-one-quarter">
-                        <table id="dataTable">
+                        <table id="dataTable" class="centered">
                             <tr>
                                 <th> Date </th>
                                 <th> Price (USD)</th>
@@ -45,7 +45,7 @@
                     </div>
                     <!--Chart Column-->
                     <div id="chartColumn" class="column">
-                        <canvas id="dataChart"></canvas>
+                        <canvas id="dataChart" class="centered"></canvas>
                         <script src="node_modules/chart.js/dist/Chart.js"></script>
                         <script>
                             function renderChart(data, days){
@@ -58,14 +58,14 @@
                                             label: '',
                                             data: Object.values(data).slice(31-days,31),
                                             backgroundColor: [
-                                                "rgb(255, 92, 57, .2)",
+                                                "rgb(59, 136, 252, .2)",
                                             ],
                                             borderColor: [
                                                 "rgba(0, 0, 0, 0.3)",
                                             ],
                                             borderWidth: 3,
                                             lineTension: .1,
-                                            pointBackgroundColor: "rgb(255, 92, 57)"
+                                            pointBackgroundColor: "rgb(59, 136, 252)"
                                         }]
                                     },
                                     options: {

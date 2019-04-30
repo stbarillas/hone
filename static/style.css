@@ -1,4 +1,5 @@
 /*General styles*/
+body {padding: 30px}
 .is-fullheight{
     height: 100vh;
     background: #FF5C39;
@@ -17,6 +18,10 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*Radio Buttons*/
 #radioContainer{
@@ -31,7 +36,9 @@ input {
 }
 
 /*Table*/
-#tableColumn{padding: 10px 30px}
+#tableColumn{
+    padding: unset;
+}
 #dataTable {
     border: 2px solid #666666;
 }
@@ -42,4 +49,6 @@ th, td {
 }
 
 /*Chart*/
-#chartColumn{padding: 10px 80px}
+#dataChart{
+    padding: 0 30px;
+}
