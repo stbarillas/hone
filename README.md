@@ -1,7 +1,9 @@
 # Hone Capital Evaluation project
 
 ## Description
-This single page application was built using HTML, CSS, and vanilla javascript. It fetches 31 days of historical 
+This single page application was built using HTML, CSS, and vanilla javascript. It fetches 31 days of historical BPI data from the CoinDesk API, parses into JSON, and creates a table and graph dynamically. 
+
+Javascript is used to filter and re-render the table and graph to set days (31, 15, 7, 3)
 
 ## Languages and Tools 💻
 - Bulma
