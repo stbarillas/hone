@@ -1,5 +1,8 @@
 # Hone Capital Evaluation project
 
+## Description
+This single page application was built using HTML, CSS, and vanilla javascript. It fetches 31 days of historical 
+
 ## Languages and Tools 💻
 - Bulma
 - Chart.js
