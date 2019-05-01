@@ -27,92 +27,91 @@
                 </div>
             </div>
         </nav>
-        <section>
-            <div id="radioContainer">
-                <h1>Data Filters</h1>
-                <div id="radioButtons" class="control">
-                        <label class="radio">
-                            <input type="radio" name="answer" checked onclick="renderData(31)">31 Days
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer" onclick="renderData(15)">15 Days
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer" onclick="renderData(7)">7 Days
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer" onclick="renderData(3)">3 Days
-                        </label>
-                </div>
+        <!--Radio Section-->
+        <div id="radioContainer">
+            <h1>Data Filters</h1>
+            <div id="radioButtons" class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer" checked onclick="renderData(31)">31 Days
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer" onclick="renderData(15)">15 Days
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer" onclick="renderData(7)">7 Days
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer" onclick="renderData(3)">3 Days
+                    </label>
             </div>
-            <div>
-                <div class="columns">
-                    <!--Table Column-->
-                    <div id="tableColumn" class="column is-one-quarter">
-                        <table id="dataTable" class="centered">
-                            <h1>BTC Table</h1>
-                            <tr>
-                                <th> Date </th>
-                                <th> Price (USD)</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <!--Chart Column-->
-                    <div id="chartColumn" class="column">
-                        <canvas id="dataChart" class="centered"></canvas>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-                        <script>
-                            function renderChart(data, days){
-                                var ctx = document.getElementById('dataChart');
-                                var dataChart = new Chart(ctx, {
-                                    type: 'line',
-                                    data: {
-                                        labels: Object.keys(data).slice(31-days, 31),
-                                        datasets: [{
-                                            label: '',
-                                            data: Object.values(data).slice(31-days,31),
-                                            backgroundColor: [
-                                                "rgb(59, 136, 252, .2)",
-                                            ],
-                                            borderColor: [
-                                                "rgba(0, 0, 0, 0.3)",
-                                            ],
-                                            borderWidth: 3,
-                                            lineTension: .1,
-                                            pointBackgroundColor: "rgb(59, 136, 252)"
-                                        }]
-                                    },
-                                    options: {
-                                        title: {
+        </div>
+        <!--Using Bulma columns to set column widths between table and graph-->
+        <div class="columns">
+            <!--Table Column-->
+            <div id="tableColumn" class="column is-one-quarter">
+                <table id="dataTable" class="centered">
+                    <h1>BTC Table</h1>
+                    <tr>
+                        <th> Date </th>
+                        <th> Price (USD)</th>
+                    </tr>
+                </table>
+            </div>
+            <!--Chart Column-->
+            <div id="chartColumn" class="column">
+                <canvas id="dataChart" class="centered"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+                <script>
+                    function renderChart(data, days){
+                        var ctx = document.getElementById('dataChart');
+                        var dataChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                // Slice start calculated dynamically with days parameter
+                                labels: Object.keys(data).slice(31-days, 31),
+                                datasets: [{
+                                    label: '',
+                                    data: Object.values(data).slice(31-days,31),
+                                    backgroundColor: [
+                                        "rgb(59, 136, 252, .2)",
+                                    ],
+                                    borderColor: [
+                                        "rgba(0, 0, 0, 0.3)",
+                                    ],
+                                    borderWidth: 3,
+                                    lineTension: .1,
+                                    pointBackgroundColor: "rgb(59, 136, 252)"
+                                }]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: "Historical BTC Graph",
+                                    fontSize: 20,
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        scaleLabel: {
                                             display: true,
-                                            text: "Historical BTC Graph",
-                                            fontSize: 20,
+                                            labelString: "Price (USD)",
                                         },
-                                        scales: {
-                                            yAxes: [{
-                                                scaleLabel: {
-                                                    display: true,
-                                                    labelString: "Price (USD)",
-                                                },
-                                                ticks: {
-                                                    beginAtZero: false
-                                                }
-                                            }],
-                                            xAxes: [{
-                                                scaleLabel: {
-                                                    display: true,
-                                                    labelString: "Date",
-                                                }
-                                            }]
+                                        ticks: {
+                                            beginAtZero: false
                                         }
-                                    }
-                                });
+                                    }],
+                                    xAxes: [{
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: "Date",
+                                        }
+                                    }]
+                                }
                             }
-                        </script>
-                    </div>
-                </div>
+                        });
+                    }
+                </script>
             </div>
-        </section>
+        </div>
     <script type="text/javascript" src="static/custom.js"></script>
     </body>
 </html>
