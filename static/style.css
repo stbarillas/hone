@@ -1,6 +1,6 @@
 /*General styles*/
 h1 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: #666666;
 }
@@ -36,7 +36,7 @@ h1 {
 .navbar-item {
     color: #FFFFFF;
     font-weight: bold;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 .navbar-item:hover {
     background: unset !important;
@@ -61,6 +61,7 @@ input {
 /*Table*/
 #tableColumn{
     padding: unset;
+    text-align: center;
 }
 #dataTable {
     border: 2px solid #666666;
