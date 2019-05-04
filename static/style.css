@@ -37,9 +37,9 @@ h1 {
     position: absolute;
     background-color: #FF5C39;
     z-index: 2;
-    /*animation: fade-in 1s;*/
-    /*animation-fill-mode: forwards;*/
-    /*animation-delay: 2s;*/
+    animation: fade-in 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
 }
 
 @keyframes fade-in {
