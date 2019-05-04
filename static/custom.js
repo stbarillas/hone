@@ -33,7 +33,7 @@ function renderTable(data, days) {
 
 // Radio button functions
 function renderData(days) {
-    // priceDict = {1:100, 2:101, 3:400, 4:201, 5:150,6:100, 7:101, 8:400, 9:201, 10:150,11:100, 12:101, 13:400, 14:201, 15:150,}
+    priceDict = {1:100, 2:101, 3:400, 4:201, 5:150,6:100, 7:101, 8:400, 9:201, 10:150,11:100, 12:101, 13:400, 14:201, 15:150,}
     // Removes all table rows except the header row
     var table = document.getElementById("dataTable");
     //or use :  var table = document.all.tableid;
