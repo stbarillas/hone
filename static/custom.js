@@ -1,3 +1,7 @@
+
+window.addEventListener('DOMContentLoaded', checkCookie);
+window.addEventListener('load', setCookie);
+
 // API call function
 fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
     // Converts API response to json
@@ -38,12 +42,26 @@ function renderData(days) {
     // Removes all table rows except the header row
     var table = document.getElementById("dataTable");
     //or use :  var table = document.all.tableid;
-    for(var i = table.rows.length - 1; i > 0; i--)
-    {
+    for (var i = table.rows.length - 1; i > 0; i--) {
         table.deleteRow(i);
     }
     // Renders table with user selected amount of days
     renderTable(priceDict, days);
     // Render chart with user selected amount of days
     renderChart(priceDict, days);
+}
+
+// Site visit cookie
+//Set cookie to reflect user has visited during this session
+function setCookie() {
+    let cookie = document.cookie = "hasVisited=True";
+}
+
+//Check if user has visited during this session to determine if animation should be run
+function checkCookie() {
+    let userhasVisited = document.cookie;
+    if (userhasVisited != "hasVisited=True") {
+        let animation = document.getElementById("animation");
+        animation.style.display = "block";
+    }
 }
