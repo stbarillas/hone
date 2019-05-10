@@ -1,5 +1,6 @@
-
+// Checks cookies to determine is user has visited site in current browser session when DOM is loaded
 window.addEventListener('DOMContentLoaded', checkCookie);
+//Sets cookie to reflect user has visited once all page elements are loaded
 window.addEventListener('load', setCookie);
 
 // API call function
@@ -59,9 +60,21 @@ function setCookie() {
 
 //Check if user has visited during this session to determine if animation should be run
 function checkCookie() {
+    //Pull all cookies, we only have 1 so no need to iterate and match
     let userhasVisited = document.cookie;
+    //If first visit, show intro animation, then unclip html after 2 seconds to match css animation time
     if (userhasVisited != "hasVisited=True") {
         let animation = document.getElementById("animation");
         animation.style.display = "block";
+        setTimeout(unclipHTML, 2000)
     }
+    //If not first visit, unclip html without delay
+    else {
+        unclipHTML()
+    }
+}
+//Function to unclip html and allow scrolling
+function unclipHTML () {
+    let html = document.getElementById("html");
+    html.classList.remove("is-clipped");
 }
