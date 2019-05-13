@@ -26,7 +26,7 @@ function renderTable(data, days) {
     let table = document.getElementById("dataTable")
     // Reverses and loops through dictionary key:value pairs
     Object.keys(data).reverse().slice(0,days).forEach(function (key) {
-        // rows created dynamically
+        // rows created dynamically and added to bottom of table
         let row = table.insertRow(-1);
         // two columns hardcoded until dynamic behavior needed
         let col1 = row.insertCell(0);
@@ -40,6 +40,7 @@ function renderTable(data, days) {
 function renderData(days) {
     // Uncomment line below to create data when developing in offline mode
     // priceDict = {1:100, 2:101, 3:400, 4:201, 5:150,6:100, 7:101, 8:400, 9:201, 10:150,11:100, 12:101, 13:400, 14:201, 15:150,}
+
     // Removes all table rows except the header row
     var table = document.getElementById("dataTable");
     //or use :  var table = document.all.tableid;
@@ -63,7 +64,7 @@ function checkCookie() {
     //Pull all cookies, we only have 1 so no need to iterate and match
     let userhasVisited = document.cookie;
     //If first visit, show intro animation, then unclip html after 2 seconds to match css animation time
-    if (userhasVisited != "hasVisited=True") {
+    if (userhasVisited !=="hasVisited=True") {
         let animation = document.getElementById("animation");
         animation.style.display = "block";
         setTimeout(unclipHTML, 2000)
